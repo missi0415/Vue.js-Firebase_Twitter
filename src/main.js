@@ -4,19 +4,20 @@ import router from './router'
 
 // fantAwesomeの読み込み－－－－－－－ー
 import { library } from '@fortawesome/fontawesome-svg-core'
-import{
+import {
   faUser,
   faSignOutAlt,
   faEllipsisV
 } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomIcon } from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(
   faUser,
   faSignOutAlt,
   faEllipsisV
 )
-Vue.component('fa',FontAwesomIcon)
+
+Vue.component('fa', FontAwesomeIcon)
 // fantAwesomeの読み込みここまで－－－－－－－ー
 
 
