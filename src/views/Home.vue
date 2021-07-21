@@ -1,18 +1,47 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="list">
+      <li v-for="whisper in orderBy(whispers,'date',-1)" :key="whisper.id" class="item">
+        
+        <!-- ここを追加 -->
+        <div class="user-box">
+          <div 
+            class="avatar"
+            :style="'background-image: url('+url+')'"
+          >
+          </div>
+          <p class="user-name">{{whisper.uid}}</p>
+        </div>
+        <div class="content" v-html="whisper.content">
+        </div>
+        <!-- ここまで追加 -->
+        
+      </li>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { db } from '../main'
+
+import Vue2Filters from 'vue2-filters' 
 
 export default {
-  name: 'Home',
+  name: 'home',
+  data () {
+    return {
+      whispers: []
+    }
+  },
+  firestore () {
+    return {
+      whispers: db.collection('whispers')
+    }
+  },
   components: {
-    HelloWorld
-  }
+  },
+  
+  // ここを追加
+  mixins: [Vue2Filters.mixin] 
 }
 </script>
