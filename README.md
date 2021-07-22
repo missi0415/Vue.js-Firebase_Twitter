@@ -1,5 +1,5 @@
 # whisperer
-
+Vue.js習得に向けて作成したツイッターライクのアプリです
 ## Project setup
 ```
 npm install
